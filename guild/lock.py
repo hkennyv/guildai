@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import logging
 import os
 
 import filelock
@@ -22,7 +23,7 @@ from guild import util
 
 # filelock uses `info` level logging for acquire/release status - move
 # this to debug level.
-filelock.logger().info = filelock.logger().debug
+logging.getLogger("filelock").setLevel(logging.DEBUG)
 
 Timeout = filelock.Timeout
 
